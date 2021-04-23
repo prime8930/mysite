@@ -19,7 +19,7 @@
 	<!-- #{}에 넘어오는 게 값이라면 그냥 아무 변수명으로 적어도 되지만, 의미있는 이름으로 넣어주는게 좋다. -->
 	<select id="find" parameterType="long" resultType="uservo">
 		<![CDATA[
-			select name, email, gender  
+			select name, email, gender   
 			from user 
 			where no = #{no }
 		]]>
@@ -27,10 +27,18 @@
 	
 	<select id="findByEmailAndPassword" parameterType="uservo" resultType="uservo">
 		<![CDATA[
-			select no, name
+			select no, name 
 			from user 
 			where email = #{email }
 			and password = #{password }
+		]]>
+	</select>
+	
+	<select id="findByEmail" parameterType="string" resultType="uservo">
+		<![CDATA[
+			select no 
+			from user 
+			where email = #{email }
 		]]>
 	</select>
 	
